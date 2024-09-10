@@ -1,35 +1,61 @@
-//
-//  PokeAPITests.swift
-//  PokeAPITests
-//
-//  Created by Gustavo Freitas on 10/09/2024.
-//
-
 import XCTest
+@testable import PokeAPI
 
 final class PokeAPITests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var viewModel: PokemonViewModel!
+    
+    override func setUp() async throws {
+        viewModel = PokemonViewModel()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testViewModelInit() {
+        XCTAssertNotNil(viewModel)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testIfSearchBarIsClear() {
+        let result = viewModel.searchText
+        XCTAssertEqual(result, "")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testIfTitleIsDisplayed() {
+        let result = viewModel.title
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result, "Pokedex")
     }
-
+    
+    func testIfHeightIsDisplayed() {
+        let result = viewModel.height
+        XCTAssertNotNil(result)
+    }
+    
+    func testIfWeightIsDisplayed() {
+        let result = viewModel.weight
+        XCTAssertNotNil(result)
+    }
+    
+    func testIfIdIsDisplayed() {
+        let result = viewModel.id
+        XCTAssertNotNil(result)
+    }
+    
+    func testIfTheresAListOfPokemon() {
+        let result = viewModel.pokemonList
+        XCTAssertNotNil(result)
+    }
+    
+    func testIfTheresSpriteData() {
+        let result = viewModel.pokemonSpriteUrl(pokemon: .mock())
+        XCTAssertNotNil(result)
+    }
+    
+    func testIfTheresAIdToFilterData() {
+        let result = viewModel.getPokemonId(pokemon: .mock())
+        XCTAssertNotNil(result)
+    }
+    
+    func testIfTheresPokemonDetailsData() {
+        let result: () = viewModel.getPokemonDetails(pokemon: .mock())
+        XCTAssertNotNil(result)
+    }
 }

@@ -1,6 +1,6 @@
 # PokeAPI
 
-This is an app that uses the PokéAPI to search for you favorite Pokemon in it. But the API Key has a limited capacity for use, so if you want to use it, you will have to acquire your own key at https://pokeapi.co/. I hope you like it and that it can be useful for you !
+It has a style similar to the Pokedex, where you can view the specific details of each Pokemon by clicking on its icon. And it has a search feature where you can filter by the name of your favorite Pokemon. This is an app that uses the PokéAPI to search for you favorite Pokemon in it, and you can find the data at https://pokeapi.co/. I hope you like it and that it can be useful for you !
 
 # Requirements
 
@@ -10,7 +10,6 @@ This is an app that uses the PokéAPI to search for you favorite Pokemon in it. 
 # This app uses:
 
 - SwiftUI
-- SDWebImage
 
 # Authors
 - Gustavo Freitas Rosa

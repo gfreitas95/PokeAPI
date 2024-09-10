@@ -10,6 +10,8 @@ It has a style similar to the Pokedex, where you can view the specific details o
 # This app uses:
 
 - SwiftUI
+- MVVM
+- XCTest
 
 # Authors
 - Gustavo Freitas Rosa

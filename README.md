@@ -18,3 +18,7 @@ It has a style similar to the Pokedex, where you can view the specific details o
 
 # Copyright
 Data provided by PokéAPI. © 2024 PokéAPI
+
+# Preview
+
+https://github.com/user-attachments/assets/e1fabd09-678e-4e26-b7b3-dde3a75b2dc6

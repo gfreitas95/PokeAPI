@@ -11,7 +11,7 @@ struct PokedexView: View {
                         .padding(.top, .extraLargeSpace)
                 } else {
                     VStack(spacing: .mediumSpace) {
-                        ForEach(viewModel.arrayTeste.sorted(by: { $0.id < $1.id })) { pokemon in
+                        ForEach(viewModel.catchedPokemon.sorted(by: { $0.id < $1.id })) { pokemon in
                             NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
                                 PokemonCardView(pokemon: pokemon)
                             }

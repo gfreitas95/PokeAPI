@@ -2,7 +2,7 @@ import XCTest
 @testable import PokeAPI
 
 final class PokeAPITests: XCTestCase {
-
+    
     var viewModel: PokemonViewModel!
     
     override func setUp() async throws {
@@ -18,44 +18,62 @@ final class PokeAPITests: XCTestCase {
         XCTAssertEqual(result, "")
     }
     
-    func testIfTitleIsDisplayed() {
-        let result = viewModel.title
+    func testIfSearchBarPlaceholderIsShowing() {
+        let result = viewModel.searchBarPlaceholder
+        XCTAssertEqual(result, "Search Pokemon")
+    }
+    
+    func testIfSearchBarImageIsShowing() {
+        let result = viewModel.searchBarImage
+        XCTAssertEqual(result, "magnifyingglass")
+    }
+    
+    func testIfOffsetIsZero() {
+        let result = viewModel.offset
+        XCTAssertEqual(result, 0)
+    }
+    
+    func testIfIsLoading() {
+        let result = viewModel.isLoading
+        XCTAssertEqual(result, false)
+    }
+    
+    func testIfIsShowingAlert() {
+        let result = viewModel.isShowingAlert
+        XCTAssertEqual(result, false)
+    }
+    
+    func testIfPokemonViewTitleIsDisplayed() {
+        let result = viewModel.pokemonViewTitle
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result, "Pokemon")
+    }
+    
+    func testIfPokemonViewImageIsDisplayed() {
+        let result = viewModel.pokemonViewImage
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result, "person.3.fill")
+    }
+    
+    func testIfPokedexViewTitleIsDisplayed() {
+        let result = viewModel.pokedexViewTitle
         XCTAssertNotNil(result)
         XCTAssertEqual(result, "Pokedex")
     }
     
-    func testIfHeightIsDisplayed() {
-        let result = viewModel.height
+    func testIfPokedexViewImageIsDisplayed() {
+        let result = viewModel.pokedexViewImage
         XCTAssertNotNil(result)
+        XCTAssertEqual(result, "books.vertical.fill")
     }
     
-    func testIfWeightIsDisplayed() {
-        let result = viewModel.weight
-        XCTAssertNotNil(result)
+    func testIfPokemonListIsClear() {
+        let result = viewModel.pokemonList.isEmpty
+        XCTAssertEqual(result, true)
     }
     
-    func testIfIdIsDisplayed() {
-        let result = viewModel.id
-        XCTAssertNotNil(result)
-    }
-    
-    func testIfTheresAListOfPokemon() {
-        let result = viewModel.pokemonList
-        XCTAssertNotNil(result)
-    }
-    
-    func testIfTheresSpriteData() {
-        let result = viewModel.pokemonSpriteUrl(pokemon: .mock())
-        XCTAssertNotNil(result)
-    }
-    
-    func testIfTheresAIdToFilterData() {
-        let result = viewModel.getPokemonId(pokemon: .mock())
-        XCTAssertNotNil(result)
-    }
-    
-    func testIfTheresPokemonDetailsData() {
-        let result: () = viewModel.getPokemonDetails(pokemon: .mock())
-        XCTAssertNotNil(result)
+    func testIfCatchedPokemonIsClear() {
+        let result = viewModel.catchedPokemon.isEmpty
+        XCTAssertEqual(result, true)
     }
 }

@@ -1,16 +1,18 @@
 import SwiftUI
 
-struct PokemonStats: Codable {
-    let base_stat: Int
+struct PokemonStats: Codable, Identifiable, Equatable, Hashable {
+    let id = UUID()
+    let baseStat: Int
     let effort: Int
     let stat: PokemonStat
     
     static func mock() -> PokemonStats {
-        return .init(base_stat: 45, effort: 0, stat: .mock())
+        return .init(baseStat: 45, effort: 0, stat: .mock())
     }
 }
 
-struct PokemonStat: Codable {
+struct PokemonStat: Codable, Identifiable, Equatable, Hashable {
+    let id = UUID()
     let name: String
     let url: String
     

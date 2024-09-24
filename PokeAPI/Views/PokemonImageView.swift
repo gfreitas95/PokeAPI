@@ -1,27 +1,23 @@
 import SwiftUI
 
 struct PokemonImageView: View {
-    @EnvironmentObject var viewModel: PokemonViewModel
-    let pokemon: Pokemon
+    let id: Int
+    let type: String
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: viewModel.pokemonSpriteUrl(pokemon: pokemon))) { pokemonImage in
+            AsyncImage(url: URL(string:  .pokeAPISpritesUrl(id: id))) { pokemonImage in
                 pokemonImage
                     .resizable()
-                    .scaledToFit()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: .imageSize, height: .imageSize)
             } placeholder: {
                 ProgressView()
                     .frame(width: .imageSize, height: .imageSize)
             }
-            .background(Color.pokemonColor(viewModel.types))
+            .background(Color.pokemonColor(type))
             .clipShape(Circle())
-            .shadow(color: .pokemonColor(viewModel.types), radius: 6, x: 0.0, y: 0.0)
-            
-            Text(pokemon.name.capitalized)
-                .font(.system(size: .fontSize, weight: .bold, design: .monospaced))
-                .padding(.bottom, .mediumSpace)
+            .shadow(color: .pokemonColor(type), radius: .shadowRadius, x: .shadowOffset, y: .shadowOffset)
         }
     }
 }

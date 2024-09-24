@@ -1,75 +1,113 @@
 import SwiftUI
+import Combine
 
 final class PokemonViewModel: ObservableObject {
     
-    var types = ""
-    var effort = ""
-    var baseStat = ""
-    var statName = ""
-    let title = "Pokedex"
-    private let pokemonManager = PokemonManager()
+    let alertTtitle = "Ops ..."
+    let pokemonViewTitle = "Pokemon"
+    let pokedexViewTitle = "Pokedex"
+    let pokemonViewImage = "person.3.fill"
+    let searchBarImage = "magnifyingglass"
+    let noPokemonFound = "No Pokemon Found"
+    let searchBarPlaceholder = "Search Pokemon"
+    let pokedexViewImage = "books.vertical.fill"
+    var searchCancellable: AnyCancellable? = nil
     
+    @Published var offset = 0
     @Published var searchText = ""
+    @Published var isLoading = false
+    @Published var isShowingAlert = false
     @Published var pokemonList = [Pokemon]()
-    @Published var pokemonDetails: PokemonDetail?
+    @Published var catchedPokemon = [PokemonDetail]()
+    @Published var filteredPokemon: [PokemonDetail]? = nil
     
-    var filteredPokemon: [Pokemon] {
-        return searchText == "" ? pokemonList : pokemonList.filter {
-            $0.name.contains(searchText.lowercased())
+    private func setupSearch() {
+        searchCancellable = $searchText
+            .removeDuplicates()
+            .debounce(for: 0.7, scheduler: RunLoop.main)
+            .sink(receiveValue: { string in
+                if string == "" {
+                    self.filteredPokemon = nil
+                } else {
+                    self.searchPokemon()
+                }
+            })
+    }
+    
+    private func requestFailureHandler(_ error: PokeAPIErrors) {
+        DispatchQueue.main.async {
+            self.isLoading = false
+            self.isShowingAlert = true
         }
+        print("A wild error appears: \(error.rawValue)")
     }
     
-    var id: String {
-        return "ID: \(pokemonDetails?.id ?? 0)"
-    }
-    
-    var height: String {
-        let height = pokemonDetails?.height ?? 0
-        return .formatHeightAndWeight(type: "Height: ", value: height) + " M"
-    }
-    
-    var weight: String {
-        let weight = pokemonDetails?.weight ?? 0
-        return .formatHeightAndWeight(type: "Weight: ", value: weight) + " KG"
-    }
-    
-    func getPokemonTypes(data: PokemonDetail) {
-        data.types.forEach { type in
-            types = "Type: \(type.type.name)"
-        }
-    }
-    
-    func getPokemonStats(data: PokemonDetail) {
-        data.stats.forEach { stat in
-            effort = "Effort: \(stat.effort)"
-            baseStat = "Base Stat: \(stat.base_stat)"
-            statName = "Stat Name: \(stat.stat.name)"
-        }
-    }
-    
-    func pokemonSpriteUrl(pokemon: Pokemon) -> String {
-        return .pokeAPISpritesUrl(id: getPokemonId(pokemon: pokemon))
-    }
-    
-    func getPokemonId(pokemon: Pokemon) -> Int {
-        if let id = self.pokemonList.firstIndex(of: pokemon) { return id + 1 }
-        return 0
-    }
-    
-    func getPokemonDetails(pokemon: Pokemon) {
-        let id = getPokemonId(pokemon: pokemon)
-        self.pokemonDetails = .mock()
+    func searchPokemon() {
+        let formatedText = searchText.replacingOccurrences(of: " ", with: "%20")
         
-        pokemonManager.getDetailPokemon(id: id) { data in
-            DispatchQueue.main.async {
-                self.pokemonDetails = data
-                self.getPokemonStats(data: data)
-                self.getPokemonTypes(data: data)
+        PokemonManager.shared.makeRequestWith(url: .pokeAPISearchUrl(name: formatedText), model: PokemonDetail.self) { [weak self] results in
+            guard let self = self else { return }
+            
+            switch results {
+            case .success(let pokemon):
+                DispatchQueue.main.async {
+                    if self.filteredPokemon == nil {
+                        self.filteredPokemon = [pokemon]
+                    }
+                    self.isLoading = false
+                }
+                
+            case .failure(let error):
+                self.requestFailureHandler(error)
+            }
+        }
+    }
+    
+    func catched(pokemon: [Pokemon]) {
+        let uniqueValues = pokemon.filter { value in
+            !self.catchedPokemon.contains(where: { $0.name == value.name })
+        }
+        
+        uniqueValues.forEach { value in
+            PokemonManager.shared.makeRequestWith(url: value.url, model: PokemonDetail.self) { [weak self] results in
+                guard let self = self else { return }
+                
+                switch results {
+                case .success(let pokemon):
+                    DispatchQueue.main.async {
+                        self.catchedPokemon.append(pokemon)
+                        self.isLoading = false
+                    }
+                    
+                case .failure(let error):
+                    self.requestFailureHandler(error)
+                }
+            }
+        }
+    }
+    
+    func fetchPokemon() {
+        isLoading = true
+        let limit = pokemonList.isEmpty ? 9 : offset
+        
+        PokemonManager.shared.makeRequestWith(url: .pokeAPIListUrl(limit: limit), model: PokemonPage.self) { [weak self] results in
+            guard let self = self else { return }
+            
+            switch results {
+            case .success(let pokemon):
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.pokemonList.append(contentsOf: pokemon.results)
+                    self.catched(pokemon: self.pokemonList)
+                    self.isLoading = false
+                }
+                
+            case .failure(let error):
+                self.requestFailureHandler(error)
             }
         }
     }
     
     init() {
-        self.pokemonList = pokemonManager.getPokemon()
+        setupSearch()
     }
 }

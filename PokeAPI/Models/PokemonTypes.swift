@@ -1,6 +1,7 @@
 import SwiftUI
 
-struct PokemonTypes: Codable {
+struct PokemonTypes: Codable, Identifiable, Equatable, Hashable {
+    let id = UUID()
     let slot: Int
     let type: PokemonType
     
@@ -9,7 +10,8 @@ struct PokemonTypes: Codable {
     }
 }
 
-struct PokemonType: Codable {
+struct PokemonType: Codable, Identifiable, Equatable, Hashable {
+    let id = UUID()
     let name: String
     let url: String
     

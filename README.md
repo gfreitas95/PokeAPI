@@ -21,4 +21,4 @@ Data provided by PokéAPI. © 2024 PokéAPI
 
 # Preview
 
-https://github.com/user-attachments/assets/e1fabd09-678e-4e26-b7b3-dde3a75b2dc6
+https://github.com/user-attachments/assets/71f7d816-3d54-476d-b884-3a0e956a9eea

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC0FE5AE2CA4391E009D846C /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0FE5AD2CA4391E009D846C /* OnboardView.swift */; };
+		EC2261632CA425C500AD905F /* PokeAPILaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2261622CA425C500AD905F /* PokeAPILaunchScreen.storyboard */; };
 		EC55CEB42C902F6900FD03FA /* PokeAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CEB32C902F6900FD03FA /* PokeAPIApp.swift */; };
 		EC55CEB62C902F6900FD03FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CEB52C902F6900FD03FA /* ContentView.swift */; };
 		EC55CEB82C902F6A00FD03FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC55CEB72C902F6A00FD03FA /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC0FE5AD2CA4391E009D846C /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
+		EC2261622CA425C500AD905F /* PokeAPILaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PokeAPILaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC55CEB02C902F6900FD03FA /* PokeAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC55CEB32C902F6900FD03FA /* PokeAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAPIApp.swift; sourceTree = "<group>"; };
 		EC55CEB52C902F6900FD03FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				EC55CEBA2C902F6A00FD03FA /* Preview Content */,
 				EC55CEE72C90355400FD03FA /* ViewModels */,
 				EC55CEED2C903A4300FD03FA /* Views */,
+				EC2261622CA425C500AD905F /* PokeAPILaunchScreen.storyboard */,
 			);
 			path = PokeAPI;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				EC55CEB52C902F6900FD03FA /* ContentView.swift */,
+				EC0FE5AD2CA4391E009D846C /* OnboardView.swift */,
 				ECD8667C2CA16FFE00592621 /* PokedexView.swift */,
 				ECAC002E2CA0261700FB3968 /* PokemonCardView.swift */,
 				ECD8667F2CA19D2300592621 /* PokemonDetailViewl.swift */,
@@ -324,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2261632CA425C500AD905F /* PokeAPILaunchScreen.storyboard in Resources */,
 				EC55CEBC2C902F6A00FD03FA /* Preview Assets.xcassets in Resources */,
 				EC55CEB82C902F6A00FD03FA /* Assets.xcassets in Resources */,
 			);
@@ -366,6 +373,7 @@
 				EC55CEF72C90CB4E00FD03FA /* PokemonPage.swift in Sources */,
 				EC55CEFB2C90CB7200FD03FA /* PokemonDetail.swift in Sources */,
 				ECAC002F2CA0261700FB3968 /* PokemonCardView.swift in Sources */,
+				EC0FE5AE2CA4391E009D846C /* OnboardView.swift in Sources */,
 				EC55CEB42C902F6900FD03FA /* PokeAPIApp.swift in Sources */,
 				EC55CEFD2C90CB8600FD03FA /* PokemonTypes.swift in Sources */,
 				ECD8667D2CA16FFE00592621 /* PokedexView.swift in Sources */,
@@ -524,12 +532,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = PokeAPI/PokeAPI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PokeAPI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokeAPI/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -560,12 +570,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = PokeAPI/PokeAPI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PokeAPI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokeAPI/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

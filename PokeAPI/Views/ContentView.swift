@@ -19,6 +19,7 @@ struct ContentView: View {
                 }
                 .environmentObject(viewModel)
         }
+        .navigationBarBackButtonHidden(true)
         .alert(viewModel.alertTtitle, isPresented: $viewModel.isShowingAlert) {
             
         } message: {

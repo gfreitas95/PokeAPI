@@ -10,7 +10,7 @@ struct PokemonDetailView: View {
             Spacer().frame(height: .mediumSpace)
             
             Text(pokemon.name.capitalized)
-                .font(.system(size: .mediumSpace, weight: .bold, design: .monospaced))
+                .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
             
             Spacer().frame(height: .mediumSpace)
             

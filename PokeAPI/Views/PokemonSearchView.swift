@@ -24,19 +24,12 @@ struct PokemonSearchView: View {
                 }
                 .padding()
                 
-                if let catchedPokemon = viewModel.filteredPokemon {
-                    if catchedPokemon.isEmpty {
-                        Text(viewModel.noPokemonFound)
-                            .padding(.top, .largeSpace)
-                    } else {
-                        ForEach(catchedPokemon) { pokemon in
-                            NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
-                                PokemonCardView(pokemon: pokemon)
-                            }
-                        }
+                if let pokemon = viewModel.filteredPokemon {
+                    NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
+                        PokemonCardView(pokemon: pokemon)
                     }
                 } else {
-                    if viewModel.searchText != "" {
+                    if !viewModel.searchText.isEmpty {
                         ProgressView()
                             .padding(.top, .largeSpace)
                     }

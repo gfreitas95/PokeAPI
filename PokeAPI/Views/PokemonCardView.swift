@@ -38,7 +38,8 @@ struct PokemonCardView: View {
             Spacer(minLength: .minLength)
         }
         .background(Color.pokemonColor(pokemon.types.first?.type.name ?? ""))
-        .shadow(color: .pokemonColor(pokemon.types.first?.type.name ?? ""), radius: .shadowRadius, x: .shadowOffset, y: .shadowOffset)
+        .shadow(color: .pokemonColor(pokemon.types.first?.type.name ?? ""),
+                radius: .shadowRadius, x: .shadowOffset, y: .shadowOffset)
         .padding(.horizontal)
     }
 }

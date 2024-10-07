@@ -8,7 +8,6 @@ final class PokemonViewModel: ObservableObject {
     let pokedexViewTitle = "Pokedex"
     let pokemonViewImage = "person.3.fill"
     let searchBarImage = "magnifyingglass"
-    let noPokemonFound = "No Pokemon Found"
     let searchBarPlaceholder = "Search Pokemon"
     let pokedexViewImage = "books.vertical.fill"
     var searchCancellable: AnyCancellable? = nil
@@ -19,7 +18,7 @@ final class PokemonViewModel: ObservableObject {
     @Published var isShowingAlert = false
     @Published var pokemonList = [Pokemon]()
     @Published var catchedPokemon = [PokemonDetail]()
-    @Published var filteredPokemon: [PokemonDetail]? = nil
+    @Published var filteredPokemon: PokemonDetail? = nil
     
     private func setupSearch() {
         searchCancellable = $searchText
@@ -52,7 +51,7 @@ final class PokemonViewModel: ObservableObject {
             case .success(let pokemon):
                 DispatchQueue.main.async {
                     if self.filteredPokemon == nil {
-                        self.filteredPokemon = [pokemon]
+                        self.filteredPokemon = pokemon
                     }
                     self.isLoading = false
                 }

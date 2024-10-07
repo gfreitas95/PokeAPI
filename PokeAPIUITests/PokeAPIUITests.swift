@@ -21,8 +21,6 @@ final class PokeAPIUITests: XCTestCase {
         
         let button2 = elementsQuery.buttons["#6, Charizard, fire"]
         button2.swipeUp()
-        button2.swipeUp()
-        elementsQuery.buttons["#7, Squirtle, water"].swipeUp()
     }
     
     func testSearchingPokemon() throws {

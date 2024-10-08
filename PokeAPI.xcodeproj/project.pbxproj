@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -85,6 +85,10 @@
 		ECD8667F2CA19D2300592621 /* PokemonDetailViewl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EC2D86A32CB454110039B0B0 /* Modifiers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Modifiers; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		EC55CEAD2C902F6900FD03FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -134,15 +138,16 @@
 			isa = PBXGroup;
 			children = (
 				EC55CEB72C902F6A00FD03FA /* Assets.xcassets */,
-				EC55CEE12C90310B00FD03FA /* Utilities */,
 				EC55CEEA2C90359300FD03FA /* Managers */,
 				EC55CEE42C90343600FD03FA /* Models */,
+				EC2D86A32CB454110039B0B0 /* Modifiers */,
 				EC55CEB92C902F6A00FD03FA /* PokeAPI.entitlements */,
 				EC55CEB32C902F6900FD03FA /* PokeAPIApp.swift */,
+				EC2261622CA425C500AD905F /* PokeAPILaunchScreen.storyboard */,
 				EC55CEBA2C902F6A00FD03FA /* Preview Content */,
+				EC55CEE12C90310B00FD03FA /* Utilities */,
 				EC55CEE72C90355400FD03FA /* ViewModels */,
 				EC55CEED2C903A4300FD03FA /* Views */,
-				EC2261622CA425C500AD905F /* PokeAPILaunchScreen.storyboard */,
 			);
 			path = PokeAPI;
 			sourceTree = "<group>";
@@ -240,6 +245,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EC2D86A32CB454110039B0B0 /* Modifiers */,
 			);
 			name = PokeAPI;
 			productName = PokeAPI;

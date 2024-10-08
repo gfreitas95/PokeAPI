@@ -20,10 +20,6 @@ struct ContentView: View {
                 .environmentObject(viewModel)
         }
         .navigationBarBackButtonHidden(true)
-        .alert(viewModel.alertTtitle, isPresented: $viewModel.isShowingAlert) {
-            
-        } message: {
-            Text(PokeAPIErrors.pokemonNotFound.rawValue)
-        }
+        .oakAlert(message: PokeAPIErrors.pokemonNotFound.rawValue, isPresented: $viewModel.isShowingAlert) {}
     }
 }

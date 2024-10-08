@@ -26,8 +26,8 @@ final class PokeAPIUITests: XCTestCase {
     func testSearchingPokemon() throws {
         let app = XCUIApplication()
         app.launch()
-        XCUIApplication().scrollViews.otherElements.textFields["Search Pokemon"].tap()
-        XCUIApplication().scrollViews.otherElements.textFields["Search Pokemon"].typeText("lugia")
+        app.scrollViews.otherElements.textFields["Search Pokemon"].tap()
+        app.scrollViews.otherElements.textFields["Search Pokemon"].typeText("lugia")
         
         let elementsQuery = app.scrollViews.otherElements
         elementsQuery.textFields["Search Pokemon"].tap()
@@ -38,8 +38,8 @@ final class PokeAPIUITests: XCTestCase {
     func testShowingAlertMessage() throws {
         let app = XCUIApplication()
         app.launch()
-        XCUIApplication().scrollViews.otherElements.textFields["Search Pokemon"].tap()
-        XCUIApplication().scrollViews.otherElements.textFields["Search Pokemon"].typeText("gustavo")
-        app.alerts["Ops ..."].scrollViews.otherElements.buttons["OK"].tap()
+        app.scrollViews.otherElements.textFields["Search Pokemon"].tap()
+        app.scrollViews.otherElements.textFields["Search Pokemon"].typeText("gustavo")
+        app.buttons["Ok"].tap()
     }
 }

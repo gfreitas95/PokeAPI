@@ -9,18 +9,17 @@ struct PokemonSearchView: View {
                 VStack(spacing: .mediumSpace) {
                     HStack(spacing: .smallSpace) {
                         Image(systemName: viewModel.searchBarImage)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.primary)
                         
                         TextField(viewModel.searchBarPlaceholder, text: $viewModel.searchText)
                             .textInputAutocapitalization(.never)
                             .autocorrectionDisabled(true)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.primary)
                     }
                     .padding(.vertical, .smallSpace)
                     .padding(.horizontal)
-                    .background(Color.white)
-                    .shadow(color: Color.black.opacity(.shadowOpacity), radius: .xyRadius, x: .xyRadius, y: .xyRadius)
-                    .shadow(color: Color.black.opacity(.shadowOpacity), radius: .xyRadius, x: -.xyRadius, y: -.xyRadius)
+                    .background(Color.primary.opacity(.shadowOpacity))
+                    .clipShape(.buttonBorder)
                 }
                 .padding()
                 

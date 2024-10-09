@@ -3,7 +3,6 @@ import Combine
 
 final class PokemonViewModel: ObservableObject {
     
-    let alertTtitle = "Ops ..."
     let pokemonViewTitle = "Pokemon"
     let pokedexViewTitle = "Pokedex"
     let pokemonViewImage = "person.3.fill"
@@ -94,7 +93,7 @@ final class PokemonViewModel: ObservableObject {
             
             switch results {
             case .success(let pokemon):
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.pokemonList.append(contentsOf: pokemon.results)
                     self.catched(pokemon: self.pokemonList)
                     self.isLoading = false

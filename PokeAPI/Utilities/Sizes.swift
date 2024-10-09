@@ -25,6 +25,7 @@ extension CGFloat {
     static let shadowRadius: CGFloat = 6
     static let shadowOffset: CGFloat = 0.0
     static let alertRadius: CGFloat = 12
+    static let modalAlertRadius: CGFloat = 35
     
     // MARK: - Heights
     static let screenHeight: CGFloat = 1.3

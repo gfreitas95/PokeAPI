@@ -34,7 +34,8 @@ struct PokemonSearchView: View {
                     }
                 }
             }
-            .navigationTitle(viewModel.pokemonViewTitle)
+            
+            Spacer()
         }
     }
 }

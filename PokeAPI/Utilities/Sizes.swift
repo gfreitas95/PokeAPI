@@ -13,7 +13,6 @@ extension CGFloat {
     static let iconSize: CGFloat = 85
     
     // MARK: - Spaces
-    static let minLength: CGFloat = 0
     static let extraSmallSpace: CGFloat = 5
     static let smallSpace: CGFloat = 10
     static let mediumSpace: CGFloat = 15

@@ -39,7 +39,7 @@ fileprivate struct PokemonErrorView: ViewModifier {
                         .ignoresSafeArea()
                         .opacity(animateView ? 1 : 0)
                     
-                    PokemonAlert(
+                    PokemonAlertView(
                         title: title,
                         message: message,
                         buttonTitle: buttonTitle,

@@ -2,13 +2,11 @@ import SwiftUI
 import Combine
 
 final class PokemonViewModel: ObservableObject {
-    
-    let pokemonViewTitle = "Pokemon"
-    let pokedexViewTitle = "Pokedex"
-    let pokemonViewImage = "person.3.fill"
+    var errorMessage = ""
+    let viewTitle = "PokeAPI"
+    let xmarkBinImage = "xmark.bin"
     let searchBarImage = "magnifyingglass"
     let searchBarPlaceholder = "Search Pokemon"
-    let pokedexViewImage = "books.vertical.fill"
     var searchCancellable: AnyCancellable? = nil
     
     @Published var offset = 0
@@ -18,6 +16,10 @@ final class PokemonViewModel: ObservableObject {
     @Published var pokemonList = [Pokemon]()
     @Published var catchedPokemon = [PokemonDetail]()
     @Published var filteredPokemon: PokemonDetail? = nil
+    
+    func navBarButtonImage(_ isPressed: Bool) -> String {
+        return isPressed ? xmarkBinImage : searchBarImage
+    }
     
     private func setupSearch() {
         searchCancellable = $searchText
@@ -36,6 +38,7 @@ final class PokemonViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.isLoading = false
             self.isShowingAlert = true
+            self.errorMessage = error.rawValue
         }
         print("A wild error appears: \(error.rawValue)")
     }
@@ -93,7 +96,7 @@ final class PokemonViewModel: ObservableObject {
             
             switch results {
             case .success(let pokemon):
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                     self.pokemonList.append(contentsOf: pokemon.results)
                     self.catched(pokemon: self.pokemonList)
                     self.isLoading = false

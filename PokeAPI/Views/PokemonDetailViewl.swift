@@ -1,11 +1,38 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
+    @State private var triggerJump: Bool = false
+    @State private var isFavorite: Bool = false
     var pokemon: PokemonDetail
     
     var body: some View {
         VStack {
-            PokemonImageView(id: pokemon.id, type: pokemon.types.first?.type.name ?? "")
+            HStack {
+                Spacer()
+                
+                Button {
+                    isFavorite.toggle()
+                    triggerJump.toggle()
+                } label: {
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
+                        .font(.title)
+                        .foregroundStyle(isFavorite ? .red : .black)
+                }
+                .jumpAnimation($triggerJump)
+                .padding(.trailing)
+            }
+            
+            AsyncImage(url: URL(string:  .pokeAPISpritesUrl(id: pokemon.id))) { pokemonImage in
+                pokemonImage
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(maxWidth: .imageSize, maxHeight: .imageSize)
+            .background(Color.pokemonColor(pokemon.types.first?.type.name ?? ""))
+            .clipShape(Circle())
+            .shadow(color: .pokemonColor(pokemon.types.first?.type.name ?? ""), radius: .shadowRadius, x: .shadowOffset, y: .shadowOffset)
             
             Spacer().frame(height: .mediumSpace)
             
@@ -41,6 +68,10 @@ struct PokemonDetailView: View {
             }
             
             Spacer()
+        }
+        .onTapGesture(count: 2) {
+            isFavorite.toggle()
+            triggerJump.toggle()
         }
     }
 }

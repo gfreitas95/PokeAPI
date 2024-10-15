@@ -42,9 +42,6 @@ struct PokedexView: View {
                     .padding(.vertical)
                 }
             }
-            .navigationTitle(viewModel.pokedexViewTitle)
-            .navigationBarTitleDisplayMode(.automatic)
-            .animation(.easeIn(duration: .smallAnimation), value: viewModel.pokemonList.count)
         }
         .onAppear {
             if viewModel.pokemonList.isEmpty {

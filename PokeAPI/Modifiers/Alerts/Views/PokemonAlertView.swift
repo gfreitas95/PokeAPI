@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PokemonAlert: View {
+struct PokemonAlertView: View {
     var title: String
     var message: String
     var buttonTitle: String

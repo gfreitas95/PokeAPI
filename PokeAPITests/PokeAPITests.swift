@@ -43,30 +43,6 @@ final class PokeAPITests: XCTestCase {
         XCTAssertEqual(result, false)
     }
     
-    func testIfPokemonViewTitleIsDisplayed() {
-        let result = viewModel.pokemonViewTitle
-        XCTAssertNotNil(result)
-        XCTAssertEqual(result, "Pokemon")
-    }
-    
-    func testIfPokemonViewImageIsDisplayed() {
-        let result = viewModel.pokemonViewImage
-        XCTAssertNotNil(result)
-        XCTAssertEqual(result, "person.3.fill")
-    }
-    
-    func testIfPokedexViewTitleIsDisplayed() {
-        let result = viewModel.pokedexViewTitle
-        XCTAssertNotNil(result)
-        XCTAssertEqual(result, "Pokedex")
-    }
-    
-    func testIfPokedexViewImageIsDisplayed() {
-        let result = viewModel.pokedexViewImage
-        XCTAssertNotNil(result)
-        XCTAssertEqual(result, "books.vertical.fill")
-    }
-    
     func testIfPokemonListIsClear() {
         let result = viewModel.pokemonList.isEmpty
         XCTAssertEqual(result, true)

@@ -15,11 +15,9 @@ struct PokemonCardView: View {
                     .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
                     .foregroundColor(.white)
                 
-                HStack(spacing: .smallSpace) {
-                    Label(pokemon.types.first?.type.name ?? "", systemImage: typeIconImage)
-                        .font(.system(size: .fontSizeMedium, weight: .bold, design: .monospaced))
-                        .foregroundColor(.white)
-                }
+                Label(pokemon.types.first?.type.name ?? "", systemImage: typeIconImage)
+                    .font(.system(size: .fontSizeMedium, weight: .bold, design: .monospaced))
+                    .foregroundColor(.white)
             }
             .padding()
             
@@ -29,13 +27,12 @@ struct PokemonCardView: View {
                 pokemonImage
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: .imageSize, height: .imageSize)
             } placeholder: {
                 ProgressView()
-                    .frame(width: .imageSize, height: .imageSize)
             }
+            .frame(width: .imageSize, height: .imageSize)
             
-            Spacer(minLength: .minLength)
+            Spacer(minLength: .zero)
         }
         .background(Color.pokemonColor(pokemon.types.first?.type.name ?? ""))
         .shadow(color: .pokemonColor(pokemon.types.first?.type.name ?? ""),

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PokedexView: View {
+struct PokemonListView: View {
     @EnvironmentObject var viewModel: PokemonViewModel
     
     var body: some View {

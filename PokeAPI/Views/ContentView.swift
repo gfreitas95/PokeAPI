@@ -33,7 +33,7 @@ struct ContentView: View {
                     .environmentObject(viewModel)
                     .transition(.blurReplace)
             } else {
-                PokedexView()
+                PokemonListView()
                     .environmentObject(viewModel)
                     .transition(.blurReplace)
             }

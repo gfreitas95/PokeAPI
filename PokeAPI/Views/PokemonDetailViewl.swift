@@ -32,7 +32,8 @@ struct PokemonDetailView: View {
             .frame(maxWidth: .imageSize, maxHeight: .imageSize)
             .background(Color.pokemonColor(pokemon.types.first?.type.name ?? ""))
             .clipShape(Circle())
-            .shadow(color: .pokemonColor(pokemon.types.first?.type.name ?? ""), radius: .shadowRadius, x: .shadowOffset, y: .shadowOffset)
+            .shadow(color: .pokemonColor(pokemon.types.first?.type.name ?? ""),
+                    radius: .shadowRadius, x: .shadowOffset, y: .shadowOffset)
             
             Spacer().frame(height: .mediumSpace)
             

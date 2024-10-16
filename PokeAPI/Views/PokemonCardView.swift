@@ -1,12 +1,11 @@
 import SwiftUI
 
 struct PokemonCardView: View {
-    private let typeIconImage = "circle.grid.cross.fill"
     var pokemon: PokemonDetail
     
     var body: some View {
         HStack(alignment: .top, spacing: .mediumSpace) {
-            VStack(alignment: .leading, spacing: .extraSmallSpace) {
+            VStack(alignment: .leading, spacing: .smallSpace) {
                 Text("#\(pokemon.id)")
                     .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
                     .foregroundColor(.black)
@@ -15,9 +14,11 @@ struct PokemonCardView: View {
                     .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
                     .foregroundColor(.white)
                 
-                Label(pokemon.types.first?.type.name ?? "", systemImage: typeIconImage)
-                    .font(.system(size: .fontSizeMedium, weight: .bold, design: .monospaced))
-                    .foregroundColor(.white)
+                Label(pokemon.types.first?.type.name ?? "",
+                      systemImage: .pokemonIcon(pokemon.types.first?.type.name ?? ""))
+                .font(.system(size: .fontSizeMedium, weight: .bold, design: .monospaced))
+                .foregroundColor(.white)
+                .imageScale(.large)
             }
             .padding()
             

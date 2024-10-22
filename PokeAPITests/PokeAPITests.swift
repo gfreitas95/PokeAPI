@@ -3,11 +3,7 @@ import XCTest
 
 final class PokeAPITests: XCTestCase {
     
-    var viewModel: PokemonViewModel!
-    
-    override func setUp() async throws {
-        viewModel = PokemonViewModel()
-    }
+    let viewModel = PokemonViewModel()
     
     func testViewModelInit() {
         XCTAssertNotNil(viewModel)

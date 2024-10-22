@@ -24,14 +24,10 @@ struct PokemonCardView: View {
             
             Spacer()
             
-            AsyncImage(url: URL(string: .pokeAPISpritesUrl(id: pokemon.id))) { pokemonImage in
-                pokemonImage
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: .imageSize, height: .imageSize)
+            PokemonImageView(state: PokemonImageState(
+                id: pokemon.id,
+                type: pokemon.types.first?.type.name ?? ""
+            ))
             
             Spacer(minLength: .zero)
         }

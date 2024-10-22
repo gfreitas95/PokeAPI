@@ -2,6 +2,12 @@ import XCTest
 
 final class PokeAPIUITests: XCTestCase {
     
+    override class func setUp() {
+        let app = XCUIApplication()
+        app.launch()
+        XCUIApplication().buttons["Gotta Catch ém All !"].tap()
+    }
+    
     func testTappingPokemonCardView() throws {
         let app = XCUIApplication()
         app.launch()

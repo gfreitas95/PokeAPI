@@ -3,6 +3,7 @@ import SwiftUI
 struct OnboardView: View {
     private let title = "Hello there,\nWelcome to the world of Pokemon".capitalized
     private let buttonTitle = "Gotta Catch ém All !"
+    var actionHandler: () -> ()
     
     var body: some View {
         NavigationView {
@@ -25,6 +26,9 @@ struct OnboardView: View {
                         .padding(.horizontal, .smallSpace)
                         .foregroundColor(.white)
                         .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
+                        .onTapGesture {
+                            actionHandler()
+                        }
                 }
             }
             .padding()

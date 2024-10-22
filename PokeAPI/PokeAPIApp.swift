@@ -2,14 +2,16 @@ import SwiftUI
 
 @main
 struct PokeAPIApp: App {
-    @AppStorage("isLogin") var isLogin: Bool = false
+    @AppStorage("isLogged") var isLogged: Bool = false
     
     var body: some Scene {
         WindowGroup {
-            if isLogin {
+            if isLogged {
                 ContentView()
             } else {
-                OnboardView().onDisappear { isLogin = true }
+                OnboardView() {
+                    isLogged = true
+                }
             }
         }
     }

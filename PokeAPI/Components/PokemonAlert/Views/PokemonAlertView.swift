@@ -1,11 +1,7 @@
 import SwiftUI
 
 struct PokemonAlertView: View {
-    var title: String
-    var message: String
-    var buttonTitle: String
-    var actionHandler: () -> ()
-    @Binding var isPresented: Bool
+    var state: PokemonAlertState
     
     var body: some View {
         VStack {
@@ -24,10 +20,10 @@ struct PokemonAlertView: View {
                         }
                 }
             
-            Text(title)
+            Text(state.title)
                 .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
             
-            Text(message)
+            Text(state.message)
                 .font(.system(size: .fontSizeMedium, weight: .medium, design: .monospaced))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.gray)
@@ -35,10 +31,10 @@ struct PokemonAlertView: View {
             
             HStack(spacing: .smallSpace) {
                 Button {
-                    isPresented = false
-                    actionHandler()
+                    state.isPresented = false
+                    state.actionHandler()
                 } label: {
-                    Text(buttonTitle)
+                    Text(state.buttonTitle)
                         .foregroundStyle(.white)
                         .fontWeight(.semibold)
                         .padding(.vertical, .smallSpace)

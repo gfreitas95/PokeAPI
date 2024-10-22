@@ -39,12 +39,13 @@ fileprivate struct PokemonErrorView: ViewModifier {
                         .ignoresSafeArea()
                         .opacity(animateView ? 1 : 0)
                     
-                    PokemonAlertView(
+                    PokemonAlertView(state: PokemonAlertState(
                         title: title,
                         message: message,
                         buttonTitle: buttonTitle,
                         actionHandler: onDismiss,
-                        isPresented: $isPresented)
+                        isPresented: $isPresented
+                    ))
                     .visualEffect({ content, proxy in
                         content
                             .offset(y: offset(proxy, screenHeight: screenHeight, animateView: animateView))

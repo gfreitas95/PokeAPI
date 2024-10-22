@@ -18,17 +18,17 @@ fileprivate struct JumpAnimationView: ViewModifier {
                     .offset(y: CGFloat(value.offsetY))
             } keyframes: { _ in
                 KeyframeTrack(\.scaleY) {
-                    SpringKeyframe(0.4, duration: 0.2, spring: .bouncy)
-                    CubicKeyframe(1.15, duration: 0.1)
-                    CubicKeyframe(1.15, duration: 0.5)
-                    CubicKeyframe(1, duration: 0.2)
+                    SpringKeyframe(.smallAnimation, duration: .mediumDuration, spring: .bouncy)
+                    CubicKeyframe(.largeAnimation, duration: .smallDuration)
+                    CubicKeyframe(.largeAnimation, duration: .largeDuration)
+                    CubicKeyframe(.mediumAnimation, duration: .mediumDuration)
                 }
                 
                 KeyframeTrack(\.rotation) {
-                    CubicKeyframe(0, duration: 0.4)
-                    CubicKeyframe(14, duration: 0.1)
-                    CubicKeyframe(-14, duration: 0.1)
-                    CubicKeyframe(0, duration: 0.1)
+                    CubicKeyframe(.zero, duration: .largeDuration)
+                    CubicKeyframe(.extraLargeAnimation, duration: .smallDuration)
+                    CubicKeyframe(-.extraLargeAnimation, duration: .smallDuration)
+                    CubicKeyframe(.zero, duration: .smallDuration)
                 }
             }
     }

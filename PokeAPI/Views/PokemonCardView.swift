@@ -13,6 +13,7 @@ struct PokemonCardView: View {
                 Text(pokemon.name.capitalized)
                     .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
                     .foregroundColor(.white)
+                    .lineLimit(1)
                 
                 Label(pokemon.types.first?.type.name ?? "",
                       systemImage: .pokemonIcon(pokemon.types.first?.type.name ?? ""))
@@ -20,9 +21,9 @@ struct PokemonCardView: View {
                 .foregroundColor(.white)
                 .imageScale(.large)
             }
-            .padding()
+            .padding([.top, .leading, .bottom])
             
-            Spacer()
+            Spacer(minLength: .zero)
             
             PokemonImageView(state: PokemonImageState(
                 id: pokemon.id,

@@ -6,6 +6,7 @@ extension CGFloat {
     // MARK: - Fonts
     static let fontSizeMedium: CGFloat = 15
     static let fontSizeLarge: CGFloat = 20
+    static let fontSizeExtraLarge: CGFloat = 25
     
     // MARK: - Images
     static let imageSize: CGFloat = 150
@@ -43,6 +44,7 @@ extension Double {
     // MARK: - Opacitys
     static let shadowOpacity: Double = 0.06
     static let alertOpacity: Double = 0.25
+    static let darkCardOpacity: Double = 0.60
     
     // MARK: - Animations
     static let animationBounce: Double = 0.05

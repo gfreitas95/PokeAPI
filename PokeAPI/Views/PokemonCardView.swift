@@ -8,7 +8,7 @@ struct PokemonCardView: View {
             VStack(alignment: .leading, spacing: .smallSpace) {
                 Text("#\(pokemon.id)")
                     .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                 
                 Text(pokemon.name.capitalized)
                     .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))

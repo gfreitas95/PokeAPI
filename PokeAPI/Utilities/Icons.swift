@@ -15,7 +15,11 @@ extension String {
         case "flying": return "wind"
         case "fairy": return "rainbow"
         case "fighting": return "figure.boxing"
-        default: return "snowflake"
+        case "ice": return "snowflake"
+        case "dragon": return "bird"
+        case "ghost": return "eye"
+        case "dark": return "poweroutlet.type.k"
+        default: return "atom"
         }
     }
 }

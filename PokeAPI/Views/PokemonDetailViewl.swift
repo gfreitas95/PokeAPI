@@ -21,7 +21,7 @@ struct PokemonDetailView: View {
             Spacer().frame(height: .mediumSpace)
             
             Text(pokemon.name.capitalized)
-                .font(.system(size: .fontSizeLarge, weight: .bold, design: .monospaced))
+                .font(.system(size: .fontSizeExtraLarge, weight: .bold, design: .monospaced))
             
             Spacer().frame(height: .mediumSpace)
             
@@ -42,5 +42,6 @@ struct PokemonDetailView: View {
             isFavorite.toggle()
             triggerJump.toggle()
         }
+        .linearGradient(pokemon.types.first?.type.name ?? "")
     }
 }

@@ -16,7 +16,7 @@ class PokemonManager {
             guard let data = data else {
                 if let error = error {
                     completion(.failure(.invalidData))
-                    print("A wild error appears: \(error.localizedDescription)")
+                    print(PokeAPIErrors.defaultError.rawValue + error.localizedDescription)
                 }
                 return
             }

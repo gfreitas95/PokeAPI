@@ -40,7 +40,7 @@ final class PokemonViewModel: ObservableObject {
             self.isShowingAlert = true
             self.errorMessage = error.rawValue
         }
-        print("A wild error appears: \(error.rawValue)")
+        print(PokeAPIErrors.defaultError.rawValue + error.rawValue)
     }
     
     func searchPokemon() {

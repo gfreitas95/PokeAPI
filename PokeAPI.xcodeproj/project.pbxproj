@@ -13,7 +13,7 @@
 		EC082BC32CC7CDB000ADD0FD /* FavoriteHeaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC082BC22CC7CDB000ADD0FD /* FavoriteHeaderState.swift */; };
 		EC082BC82CC7D5EF00ADD0FD /* PokemonAlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC082BC72CC7D5EF00ADD0FD /* PokemonAlertState.swift */; };
 		EC0FE5AE2CA4391E009D846C /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0FE5AD2CA4391E009D846C /* OnboardView.swift */; };
-		EC2261632CA425C500AD905F /* PokeAPILaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2261622CA425C500AD905F /* PokeAPILaunchScreen.storyboard */; };
+		EC2261632CA425C500AD905F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2261622CA425C500AD905F /* Launch Screen.storyboard */; };
 		EC55CEB42C902F6900FD03FA /* PokeAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CEB32C902F6900FD03FA /* PokeAPIApp.swift */; };
 		EC55CEB62C902F6900FD03FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CEB52C902F6900FD03FA /* ContentView.swift */; };
 		EC55CEB82C902F6A00FD03FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC55CEB72C902F6A00FD03FA /* Assets.xcassets */; };
@@ -72,7 +72,7 @@
 		EC082BC22CC7CDB000ADD0FD /* FavoriteHeaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHeaderState.swift; sourceTree = "<group>"; };
 		EC082BC72CC7D5EF00ADD0FD /* PokemonAlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAlertState.swift; sourceTree = "<group>"; };
 		EC0FE5AD2CA4391E009D846C /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
-		EC2261622CA425C500AD905F /* PokeAPILaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PokeAPILaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC2261622CA425C500AD905F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EC55CEB02C902F6900FD03FA /* PokeAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC55CEB32C902F6900FD03FA /* PokeAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAPIApp.swift; sourceTree = "<group>"; };
 		EC55CEB52C902F6900FD03FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 				EC0146492CB5858B00F32022 /* Modifiers */,
 				EC55CEB92C902F6A00FD03FA /* PokeAPI.entitlements */,
 				EC55CEB32C902F6900FD03FA /* PokeAPIApp.swift */,
-				EC2261622CA425C500AD905F /* PokeAPILaunchScreen.storyboard */,
+				EC2261622CA425C500AD905F /* Launch Screen.storyboard */,
 				EC55CEBA2C902F6A00FD03FA /* Preview Content */,
 				ECB1F21B2CC6EFAE000062CD /* Services */,
 				EC55CEE12C90310B00FD03FA /* Utilities */,
@@ -553,7 +553,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2261632CA425C500AD905F /* PokeAPILaunchScreen.storyboard in Resources */,
+				EC2261632CA425C500AD905F /* Launch Screen.storyboard in Resources */,
 				EC55CEBC2C902F6A00FD03FA /* Preview Assets.xcassets in Resources */,
 				EC55CEB82C902F6A00FD03FA /* Assets.xcassets in Resources */,
 			);
@@ -785,6 +785,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -824,6 +825,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

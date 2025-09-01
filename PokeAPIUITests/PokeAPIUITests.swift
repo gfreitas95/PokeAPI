@@ -54,6 +54,7 @@ final class PokeAPIUITests: XCTestCase {
         let elementsQuery = app.scrollViews.otherElements
         elementsQuery.textFields["Search Pokemon"].tap()
         app.scrollViews.otherElements.textFields["Search Pokemon"].typeText("gustavo")
+        waitForExpectations(timeout: 5, handler: nil)
         app.buttons["Ok"].tap()
         app/*@START_MENU_TOKEN@*/.buttons["xmark.bin"]/*[[".buttons[\"Junk\"]",".buttons[\"xmark.bin\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }

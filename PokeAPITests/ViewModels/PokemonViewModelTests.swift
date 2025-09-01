@@ -1,7 +1,7 @@
 import XCTest
 @testable import PokeAPI
 
-final class PokeAPITests: XCTestCase {
+final class PokemonViewModelTests: XCTestCase {
     
     let viewModel = PokemonViewModel()
     
